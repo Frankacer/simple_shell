@@ -41,5 +41,6 @@ void non_interact(char *prg_path)
 		free(cmd_buff);
 		cmd_buff = NULL;
 	}
+	free(cmd_buff);
 	exit(status);
 }
