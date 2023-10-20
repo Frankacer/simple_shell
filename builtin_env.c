@@ -2,7 +2,9 @@
 #include "main.h"
 
 /**
- * builtin_env - prints environment of current process
+ * hsh_env - prints environment of current process
+ * @input: pointer to array of input tokens
+ * @status: pointer to exit code variable
  */
 void hsh_env(char **input, int *status)
 {

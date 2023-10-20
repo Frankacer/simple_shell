@@ -3,6 +3,7 @@
 
 /**
  * non_interact - runt the shell in non interactive mode
+ * @prg_path: string that holds program shell's pathname
  */
 void non_interact(char *prg_path)
 {
