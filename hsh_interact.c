@@ -7,7 +7,7 @@
  */
 void hsh_loop(char *prg_path)
 {
-	int counter = 1;
+	int counter = 1, hsh_status = 0;
 	char *cmd_buff = NULL;
 	char **input;
 
@@ -28,11 +28,10 @@ void hsh_loop(char *prg_path)
 			counter++;
 			continue;
 		}
-		if (check_builtin(input, &cmd_buff, NULL) == 0)
-			;
-		else if ((cmd_exec(input)) == 127)
-			_printf("%s: %d: %s: %s\n", prg_path, counter, *input, "not found");
-
+		if (check_builtin(input, &cmd_buff, &hsh_status) == 1)
+			cmd_exec(input, &hsh_status);
+		if (hsh_status > 0)
+			print_error(hsh_status, input, prg_path);
 		free(input);
 		free(cmd_buff);
 		counter++;
