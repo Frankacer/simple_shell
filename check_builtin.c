@@ -30,6 +30,11 @@ int check_builtin(char **input, char **cmd_buff, int *status)
 					free(*cmd_buff);
 					exit(EXIT_SUCCESS);
 				}
+				if (is_valid_arg(input[1]) == 1)
+				{
+					*status = 2;
+					return (0);
+				}
 				*status = _atoi(input[1]) % 256;
 				free(input);
 				free(*cmd_buff);

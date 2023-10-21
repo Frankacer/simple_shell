@@ -6,7 +6,7 @@
  *
  * Return: 0 on success, otherwise -1.
  */
-int cmd_exec(char **input)
+int cmd_exec(char **input, int *hsh_status)
 {
 	char *abs_path;
 	pid_t pid;
@@ -18,8 +18,10 @@ int cmd_exec(char **input)
 		abs_path = find_exe(*input);
 
 	if (abs_path == NULL)
+	{
+		*hsh_status = 127;
 		return (127);
-
+	}
 	pid = fork();
 	if (pid == -1)
 	{

@@ -25,3 +25,40 @@ int _atoi(char *s)
 	return (result * sign);
 }
 
+
+/**
+ * is_valid_arg - checks if an arg is valid
+ * @str: arg string
+ *
+ * Return: returns 0 id arg is valid, 0 otherwise.
+ */
+int is_valid_arg(char *str)
+{
+	int i = 0, arg;
+	char *s = str;
+
+	while (str[i])
+	{
+		if (_isdigit(str[i]) != 1)
+			return (1);
+		i++;
+	}
+	arg = _atoi(s);
+	if (arg < 0)
+		return (1);
+	return (0);
+}
+
+/**
+ * _isdigit - checks if a character is a digit
+ *
+ * @c: the character to be checked
+ *
+ * Return: 1 if c is a digit, 0 otherwise
+ */
+int _isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
+}

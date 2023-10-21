@@ -74,6 +74,9 @@ UnPtr CheckUnSpecifier(char c);
 int ChoSpecFunc(char c, va_list args);
 void builtin_exec(char **line, int actual_case);
 int _atoi(char *s);
+int is_valid_arg(char *str);
+int _isdigit(int c);
+void print_error(int status, char **input, char *prg_path);
 
 #endif
 

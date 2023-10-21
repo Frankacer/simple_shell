@@ -10,7 +10,7 @@ void hsh_env(char **input, int *status)
 {
 	input[0] = "/usr/bin/env";
 	if (status)
-		*status = cmd_exec(input);
+		*status = cmd_exec(input, NULL);
 	else
-		 cmd_exec(input);
+		 cmd_exec(input, NULL);
 }
