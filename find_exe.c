@@ -28,8 +28,6 @@ char *find_exe(char *cmd)
 				free(temp);
 				free(path);
 				closedir(dir_stream);
-				if (is_a_path(pathname) == 1)
-					return (NULL);
 				return (pathname);
 			}
 		}

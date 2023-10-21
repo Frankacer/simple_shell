@@ -1,4 +1,5 @@
 #include "shell.h"
+#include "main.h"
 
 /**
  * check_builtin - handles builtins
@@ -23,9 +24,16 @@ int check_builtin(char **input, char **cmd_buff, int *status)
 			}
 			else if (i == 1)
 			{
+				if (input[1] == NULL)
+				{
+					free(input);
+					free(*cmd_buff);
+					exit(EXIT_SUCCESS);
+				}
+				*status = _atoi(input[1]) % 256;
 				free(input);
 				free(*cmd_buff);
-				exit(EXIT_SUCCESS);
+				exit(*status);
 			}
 		}
 	}

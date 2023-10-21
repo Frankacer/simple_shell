@@ -33,7 +33,6 @@ void non_interact(char *prg_path)
 				if (status == 127)
 					_printf("%s: %d: %s: %s\n", prg_path, 1, *input, "not found");
 				free(input);
-				free(cmd_buff);
 				break;
 			}
 		}

@@ -73,6 +73,7 @@ number parse_un(size_t n);
 UnPtr CheckUnSpecifier(char c);
 int ChoSpecFunc(char c, va_list args);
 void builtin_exec(char **line, int actual_case);
+int _atoi(char *s);
 
 #endif
 
