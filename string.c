@@ -116,7 +116,7 @@ char *_strdup(char *str)
 
 	/*Condition for unsuccessful allocation*/
 	if (s == NULL)
-		return (NULL);
+		exit(EXIT_FAILURE);
 
 	/*Copy contents of str into s*/
 	return (_strcpy(s, str));

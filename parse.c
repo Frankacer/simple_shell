@@ -25,13 +25,13 @@ char **parse_line(char *line)
 	if (tokens == NULL)
 	{
 		perror("Dynamic memory allocation failed!");
-		return (NULL);
+		exit(errno);
 	}
-	tokens[i] = strtok(line, delimiter);
+	tokens[i] = _strdup(strtok(line, delimiter));
 	while (tokens[i] != NULL)
 	{
 		i++;
-		tokens[i] = strtok(NULL, delimiter);
+		tokens[i] = _strdup(strtok(NULL, delimiter));
 	}
 	free(temp);
 	return (tokens);
@@ -57,7 +57,12 @@ char **get_input(char **cmd_buff, int *counter)
 		exit(EXIT_SUCCESS);
 	}
 	if (**cmd_buff == '\0')
+	{
+		free(*cmd_buff);
+		(*counter)++;
 		return (NULL);
+	}
 	input = parse_line(*cmd_buff);
+	free(*cmd_buff);
 	return (input);
 }

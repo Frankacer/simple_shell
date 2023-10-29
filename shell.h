@@ -31,8 +31,10 @@ char *get_env(char *name);
 int cmd_exec(char **input, int *hsh_status);
 void hsh_env(char **input, int *status);
 int is_a_path(const char *cmd);
-int check_builtin(char **line, char **cmd_buff, int *status);
+int check_builtin(char **input, char *prg_path, int *count, int flag, int *status, int *hsh_status);
 int _putchar(int c);
 int _puts(char *str);
+void hsh_exit(char **input, char *prg_path, int flag, int *hsh_status);
+void free_block(char **input);
 
 #endif

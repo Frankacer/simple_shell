@@ -8,20 +8,24 @@
  */
 int cmd_exec(char **input, int *hsh_status)
 {
-	char *abs_path;
+	char *abs_path, *temp = input[0];
+	char temp_2[] = "env"; 
 	pid_t pid;
 	int status = 0, exit_code = 0;
-
+	
+	*hsh_status = 0;
 	if (is_a_path(*input) == 0)
 		abs_path = _strdup(*input);
+	else if (_strcmp(temp, temp_2) == 0)
+		abs_path = _strdup("/usr/bin/env");
 	else
 		abs_path = find_exe(*input);
-
 	if (abs_path == NULL)
 	{
 		*hsh_status = 127;
 		return (127);
 	}
+	
 	pid = fork();
 	if (pid == -1)
 	{
